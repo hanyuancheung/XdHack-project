@@ -15,12 +15,13 @@ import javax.swing.JTextField;
 
 public class appUI extends JPanel {
 
-	TipUI tipui =new TipUI();
+	 TipUI tipui =new TipUI();
 	 Test2 test = new Test2();
 //	 JTextField numField;
 //	 JTextField ageField;
 	 appListener appL = new appListener();
 	 RefreshThread rThread = new RefreshThread();
+	 SearchTest search = new SearchTest();
 	
 	public void showUI() {
 		JFrame appframe = new JFrame();
@@ -50,7 +51,7 @@ public class appUI extends JPanel {
 		numField.setEditable(false);
 		numField.setText("");
 		p.add(numField);
-		appL.upThread.numField = numField;
+		//appL.upThread.numField = numField;
 		rThread.numField = numField;
 		
 		
@@ -60,16 +61,26 @@ public class appUI extends JPanel {
 		ageField.setEditable(false);
 		ageField.setText("");
 		p.add(ageField);
-		appL.upThread.ageField = ageField;
+		//appL.upThread.ageField = ageField;
 		rThread.ageField = ageField;
 		
 		
-		rThread.start();
-//		appListener appL = new appListener();
-		appL.test2=test;
-		appL.tipui=tipui;
-		test.tipui=tipui;
-		tipui.test=test;
+		//是否为老客户显示框
+		JTextField corField = new JTextField(20);//20为输入框宽度
+		corField.setPreferredSize(inputsize);
+		corField.setEditable(false);
+		corField.setText("");
+		p.add(corField);
+		rThread.corField = corField;
+		
+		
+		//可信度显示框
+		JTextField belField = new JTextField(20);//20为输入框宽度
+		belField.setPreferredSize(inputsize);
+		belField.setEditable(false);
+		belField.setText("");
+		p.add(belField);
+		rThread.belField = belField;
 		
 		
 		JMenuBar menuBar = new JMenuBar();//创建一个菜单栏
@@ -89,6 +100,23 @@ public class appUI extends JPanel {
 	    appframe.setJMenuBar(menuBar);
 		//设置可见
 		appframe.setVisible(true);
+		
+		rThread.start();
+		
+		
+		
+//		appListener appL = new appListener();
+		appL.test2=test;
+		appL.tipui=tipui;
+		test.tipui=tipui;
+		tipui.test=test;
+		
+		
+
+		
+		
+		
+		
 		//获取画布
 		Graphics g = appframe.getGraphics();
 		appL.setGraphics(g);
@@ -101,27 +129,8 @@ public class appUI extends JPanel {
 		
 		JTextField numField;
 		JTextField ageField;
+		JTextField corField;
+		JTextField belField;
 //		String facenum = test.getface_num();
 //		String agee = test.getAge();
-		public void run() {
-			while(true) {
-				String facenum = test.getface_num();
-				String agee = test.getAge();
-				System.out.println("getfaceNum="+facenum);
-				System.out.println("getAge="+agee);
-				numField.setText("人脸数目:"+facenum);
-				ageField.setText("年龄:"+agee);
-				if(appL.isOn == true) {
-					 File file = new File("C:\\Users\\TANGNAN\\Desktop\\XdHack图片\\"+appL.num+".png");
-					 test.file = file;
-					 test.method(file);
-				}
-			}
-		}
-	}
-	
-	  public static void main(String[] args) throws Exception {  
-      		appUI appui = new appUI();
-         	appui.showUI();
-       } 
-}
+		public void r

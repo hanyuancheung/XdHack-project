@@ -27,7 +27,7 @@ public class appListener implements ActionListener {
 	//获取摄像头
 	Webcam cam = Webcam.getDefault();
 	UploadThread upThread = new UploadThread();
-	boolean isOn = false;//是否已经打开摄像头 
+	 public boolean isOn = false;//是否已经打开摄像头 
 	
 	
     
@@ -100,7 +100,7 @@ public class appListener implements ActionListener {
 			  long start = System.currentTimeMillis();
 
 //			  int num = 1;
-			  for(int i=0;i<300;i++) {
+			  for(int i=0;i<80;i++) {
 				  
 				  BufferedImage buffer = cam.getImage();
 				ImgToArr(buffer);
@@ -113,7 +113,7 @@ public class appListener implements ActionListener {
 						
 						
 						//System.out.println(System.currentTimeMillis()-start);
-				  if((System.currentTimeMillis()-start)/1000 == 4) {
+				  if((System.currentTimeMillis()-start)/1000 == 4 ) {
 					  BufferedImage img=cam.getImage();
 					  System.out.println("完成第一步");
 					  try {
@@ -180,6 +180,4 @@ public class appListener implements ActionListener {
 					
 				}
 			}
-		}
-
-}
+		
