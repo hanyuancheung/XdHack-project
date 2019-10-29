@@ -1,6 +1,8 @@
 # XdHack-project
 The project below is our awesome competition project which works on recommandation system &amp; chooses the Sale and Clothes track. Feel free to download our masterpiece and contribute with us 😄thank u guys ✌️
 
+![xdhack1](https://github.com/zhychestercheung/XdHack-project/1.png)
+
 > The background of our project is that, when customers are scanning products offline, they always spend a lot of time hanging around and search the suitable store or products. According to that fact, we decide to develop an application of this field and help all guys missed find their wonderful clothes or delicious.
 
 ### Total framework of our project is that:
@@ -48,3 +50,5 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+![xdhack2](https://github.com/zhychestercheung/XdHack-project/2.png)
